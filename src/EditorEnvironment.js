@@ -4,7 +4,7 @@ const EditorContext = React.createContext({})
 
 function EditorEnvironment({ id, persistance, children }) {
   const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [currentPromise, setCurrentPromise] = useState(null)
 
   const update = (d) => { setData(d) }
   const save = () => {
@@ -15,24 +15,34 @@ function EditorEnvironment({ id, persistance, children }) {
     }
   const del = () => {}
 
+  const trackPromise = (p) => {
+    const mp = currentPromise == null ? p : Promise.all([currentPromise, p]);
+    setCurrentPromise(mp)
+    mp.then(()=> setCurrentPromise(cp => {
+      if(cp == mp) return null;
+      return cp;
+    }))
+  } 
+
   useEffect(()=> {
-    setIsLoading(true);
+    trackPromise(
     persistance
       .load(id)
       .then(data => {
         console.log("loaded", data)
         setData(data);
-        setIsLoading(false);
       })
+    )
   }, [id])
 
   const editorData = {
     id,
     data,
-    isLoading,
+    isLoading: currentPromise != null,
     update,
     save,
-    delete: del
+    delete: del,
+    trackPromise,
   }
 
   return <EditorContext.Provider children={children} value={editorData} />
