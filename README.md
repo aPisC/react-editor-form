@@ -4,12 +4,12 @@ It is a small package that helps with managing complex data behind an editor or 
 
 > Made with create-react-library
 
-[![NPM](https://img.shields.io/npm/v/react-editor-form.svg)](https://www.npmjs.com/package/react-editor-form) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@apisc/react-editor-form.svg)](https://www.npmjs.com/package/@apisc/react-editor-form) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install (in the future)
 
 ```bash
-npm install --save react-editor-form
+npm install --save @apisc/react-editor-form
 ```
 
 ## EditorEnvironment Component
