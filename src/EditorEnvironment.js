@@ -2,8 +2,16 @@ import React, { useState, useEffect, useRef } from 'react'
 
 const EditorContext = React.createContext({})
 
-function EditorEnvironment({ id, persistance, children, emitHandler }) {
-  const [data, setData] = useState(null)
+function EditorEnvironment({
+  id,
+  persistance,
+  children,
+  emitHandler,
+  externalState,
+}) {
+  let [data, setData] = useState(null)
+  if (externalState) [data, setData] = externalState
+
   const [currentPromise, setCurrentPromise] = useState(null)
 
   // Guard for updating mounted components only
@@ -75,6 +83,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
    * (load, save, delete)
    */
   const save = () => {
+    if (persistance == null) return
     if (emit({ type: 'BEFORE_SAVE' }, true)) {
       const p = (id == null
         ? persistance.create(data)
@@ -95,6 +104,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
 
   // deletes current object (using persistance interface)
   const del = () => {
+    if (persistance == null) return
     if (emit({ type: 'BEFORE_DELETE' }, true)) {
       const p = persistance
         .delete(id, data)
@@ -113,6 +123,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
 
   // load data by the given id (using persistance interface)
   const load = () => {
+    if (persistance == null) return
     const p = persistance
       .load(id)
       .then((data) => {
@@ -133,7 +144,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
 
   // load data on editor initialization
   useEffect(() => {
-    if (persistance != null) load()
+    load()
     // eslint-disable-next-line
   }, [id])
 
