@@ -27,12 +27,12 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
           ? {
               cancel: () => {
                 isCanceled = true
-              }
+              },
             }
           : {}),
         data,
         id,
-        ...emitData
+        ...emitData,
       })
     }
     return !isCanceled
@@ -46,7 +46,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
   const clearTrackedPromise = (p) => {
     if (isMountedRef.current)
       setCurrentPromise((currentPromise) => {
-        if (currentPromise == p) return null
+        if (currentPromise === p) return null
         return currentPromise
       })
   }
@@ -134,6 +134,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
   // load data on editor initialization
   useEffect(() => {
     load()
+    // eslint-disable-next-line
   }, [id])
 
   const editorData = {
@@ -145,7 +146,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
     load,
     delete: del,
     trackPromise,
-    emit
+    emit,
   }
 
   return <EditorContext.Provider children={children} value={editorData} />

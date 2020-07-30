@@ -17,13 +17,13 @@ const AccessListItemInner = ({ children }) => {
             editor.update([
               ...editor.data.slice(0, i),
               nd,
-              ...editor.data.slice(i + 1)
+              ...editor.data.slice(i + 1),
             ]),
           delete: () =>
             editor.update([
               ...editor.data.slice(0, i),
-              ...editor.data.slice(i + 1)
-            ])
+              ...editor.data.slice(i + 1),
+            ]),
         }}
       >
         <EditorEnvironment.Context.Consumer children={children} />

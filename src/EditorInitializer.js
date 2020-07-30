@@ -1,15 +1,15 @@
-import React, { useEffect, useContext, useState } from 'react'
+import { useEffect, useContext } from 'react'
 import EditorEnvironment from './EditorEnvironment'
 
-const EditorInitializer = ({initializer, onUpdate, dependencies}) => {
-  const editor = useContext(EditorEnvironment.Context);
+const EditorInitializer = ({ initializer, onUpdate, dependencies }) => {
+  const editor = useContext(EditorEnvironment.Context)
 
   const fetchData = () => {
-    editor.trackPromise(initializer(editor.id).then((x) => (onUpdate(x))))
-  };
-  useEffect(fetchData, dependencies || []);
+    editor.trackPromise(initializer(editor.id).then((x) => onUpdate(x)))
+  }
+  useEffect(fetchData, dependencies || [])
 
-  return null;
+  return null
 }
 
 export default EditorInitializer

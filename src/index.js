@@ -1,5 +1,3 @@
-
-
 import EditorEnvironment from './EditorEnvironment'
 import EditorFieldConnector from './EditorFieldConnector'
 import useEditorInitializer from './useEditorInitializer'
@@ -8,15 +6,12 @@ import AccessListItem from './AccessListItem'
 import AccessMember from './AccessMember'
 import ValueConverter from './ValueConverter'
 
-
 export {
   EditorEnvironment,
   EditorFieldConnector,
   useEditorInitializer,
   EditorInitializer,
   AccessListItem,
-  AccessMember, 
+  AccessMember,
   ValueConverter,
 }
-
-
