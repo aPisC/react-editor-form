@@ -5,7 +5,9 @@ const EditorInitializer = ({ initializer, onUpdate, dependencies }) => {
   const editor = useContext(EditorEnvironment.Context)
 
   const fetchData = () => {
-    editor.trackPromise(initializer(editor.id).then((x) => onUpdate(x)))
+    if (initializer.constructor.name === 'AsyncFunction')
+      editor.trackPromise(initializer(editor.id).then((x) => onUpdate(x)))
+    else if (typeof initializer === 'function') onUpdate(initializer(editor.id))
   }
   useEffect(fetchData, dependencies || [])
 
