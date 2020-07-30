@@ -6,7 +6,7 @@ It is a small package that helps with managing complex data behind an editor or 
 
 [![NPM](https://img.shields.io/npm/v/@apisc/react-editor-form.svg)](https://www.npmjs.com/package/@apisc/react-editor-form) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install (in the future)
+## Install
 
 ```bash
 npm install --save @apisc/react-editor-form
