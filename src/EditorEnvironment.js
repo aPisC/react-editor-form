@@ -133,7 +133,7 @@ function EditorEnvironment({ id, persistance, children, emitHandler }) {
 
   // load data on editor initialization
   useEffect(() => {
-    load()
+    if (persistance != null) load()
     // eslint-disable-next-line
   }, [id])
 
