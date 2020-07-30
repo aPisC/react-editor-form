@@ -3,7 +3,7 @@ import ValueConverter from './ValueConverter'
 
 export default function AccessMember(props) {
   const seg = props.member.split('.')
-  const last = seg[seg - 1]
+  const last = seg[seg.length - 1]
   let am = (
     <ValueConverter
       load={(d) => d && d[last]}
