@@ -1,7 +1,7 @@
 {
-  "name": "react-editor-form",
+  "name": "@apisc/react-editor-form",
   "version": "1.0.0",
-  "description": "Made with create-react-library",
+  "description": "React editor state management library",
   "author": "aPisC",
   "license": "MIT",
   "repository": "aPisC/react-editor-form",
