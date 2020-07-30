@@ -8,7 +8,7 @@ export default function ValueConverter({ load, update, children }) {
       value={{
         ...editor,
         data: load(editor.data),
-        update: (nd) => editor.update(update(nd, editor.data))
+        update: (nd) => editor.update(update(nd, editor.data)),
       }}
       children={children}
     />
