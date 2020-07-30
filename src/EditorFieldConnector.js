@@ -16,6 +16,7 @@ const InnerFieldComponent = ({
       ...props,
       onChange: (event) =>
         editor.update((valueLoader || ((event) => event.target.value))(event)),
+      onUpdate: (value) => editor.update(value),
       [valuePropName || 'value']: editor.data == null ? '' : editor.data,
     },
     children,

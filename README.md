@@ -80,7 +80,7 @@ Signals can be emitted with `emit` function, it requires an object with the data
 ```
 
 ## EditorFieldConnector
-This component will create a field of the given type, connects the `value` and `onChange` properties, and updates the entity or the given member of entity by the `onChange` event. The value property name and the function that gets value from event object can be overwritten.
+This component will create a field of the given type, connects the `value`, `onChange`, `onUpdate` properties (onChange to handle default change event, onUpdate to handle updates manually), and updates the entity or the given member of entity by the `onChange` event. The value property name and the function that gets value from event object can be overwritten.
 
 ```jsx
 return (
