@@ -11,8 +11,8 @@ const useEditorInitializer = (
 
   const fetchData = () => {
     if (initializer.constructor.name === 'AsyncFunction')
-      editor.trackPromise(initializer(editor.id).then((x) => onUpdate(x)))
-    else if (typeof initializer === 'function') onUpdate(initializer(editor.id))
+      editor.trackPromise(initializer(editor.id).then((x) => setState(x)))
+    else if (typeof initializer === 'function') setState(initializer(editor.id))
   }
   useEffect(fetchData, dependencies || [])
 
