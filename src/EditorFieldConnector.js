@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import EditorEnvironment from './EditorEnvironment'
-import AccessMember from './Converters/AccessMember'
+import AccessMember from './AccessMember'
 
 const InnerFieldComponent = ({
   component,

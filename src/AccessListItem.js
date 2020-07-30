@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import AccessMember from './AccessMember'
-import EditorEnvironment from '../EditorEnvironment'
+import EditorEnvironment from './EditorEnvironment'
 
 const AccessListItemInner = ({ children }) => {
   const editor = useContext(EditorEnvironment.Context)

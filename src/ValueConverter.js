@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import EditorEnvironment from '../EditorEnvironment'
+import EditorEnvironment from './EditorEnvironment'
 
 export default function ValueConverter({ load, update, children }) {
   const editor = useContext(EditorEnvironment.Context)
