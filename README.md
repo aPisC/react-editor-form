@@ -18,8 +18,9 @@ This is the component which provides a flexible context to easily create forms w
 |Name| Definition|
 |-|-|
 | `id` | Identifier of the edited object, `null` when creating a new entity |
-| `persistance` | An object with data storing functions, used for loading , saving and deleting entities  |
+| `persistance` (optional) | An object with data storing functions, used for loading , saving and deleting entities  |
 | `emitHandler` (optional) | You can pass a function to be notified from changes and data storing events within the context of editor |
+| `externalState` (optional) | You can pass a state and an update function in array to track the current state externally |
 
 ### Provided context
 You can access the provided editor context by hooks (`useContext(EditorEnvironment.Context)`) or with consumer component (`<EditorEnvironment.Consumer />`)
