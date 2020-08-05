@@ -10,14 +10,22 @@ const InnerFieldComponent = ({
   ...props
 }) => {
   const editor = useContext(EditorEnvironment.Context)
+
+  const propOverride = {
+    onChange: (event) =>
+      editor.update((valueLoader || ((event) => event.target.value))(event)),
+    [valuePropName || 'value']: editor.data == null ? '' : editor.data,
+  }
+
+  if (typeof component !== 'string') {
+    propOverride.onUpdate = (value) => editor.update(value)
+  }
+
   return React.createElement(
     component,
     {
       ...props,
-      onChange: (event) =>
-        editor.update((valueLoader || ((event) => event.target.value))(event)),
-      onUpdate: (value) => editor.update(value),
-      [valuePropName || 'value']: editor.data == null ? '' : editor.data,
+      ...propOverride,
     },
     children,
   )
